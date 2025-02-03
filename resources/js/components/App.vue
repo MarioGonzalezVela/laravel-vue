@@ -125,7 +125,7 @@ export default {
                     this.productoEditando
                 );
                 // Actualizar la lista de productos con los nuevos
-                
+
                 const index = this.productos.findIndex(
                     (p) => p.id === this.productoEditando.id
                 );
@@ -141,6 +141,20 @@ export default {
         },
         cerrarModalEdicion() {
             this.productoEditando = null;
+        },
+        async eliminarProducto(id) {
+            if (
+                confirm("¿Estás seguro de que quieres eliminar este producto?")
+            ) {
+                try {
+                    await axios.delete(`/api/products/${id}`);
+                    this.productos = this.productos.filter(
+                        (producto) => producto.id !== id
+                    );
+                } catch (error) {
+                    console.error("Error al eliminar el producto:", error);
+                }
+            }
         },
     },
 };
