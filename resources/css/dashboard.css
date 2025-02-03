@@ -1,0 +1,24 @@
+h1{
+    color:darkslategray;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p{
+    margin-left: 30px;
+    margin-top: 30px;
+    color:darkslategray;
+ }
+
+.products-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding:50px;
+    background-color: azure;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px;
+    margin: 30px;
+    font-weight: bold;
+}
