@@ -52,6 +52,31 @@
             </p>
         </div>
     </div>
+
+    <!-- Modal de edición de producto -->
+    <div v-if="productoEditando" class="modal">
+        <div class="modal-content">
+            <span class="close" @click="cerrarModalEdicion">&times;</span>
+            <h3>Editar Producto</h3>
+            <form @submit.prevent="guardarEdicion">
+                <label>Nombre:</label>
+                <input v-model="productoEditando.title" type="text" required />
+                <label>Precio:</label>
+                <input
+                    v-model="productoEditando.price"
+                    type="number"
+                    step="0.01"
+                    required
+                />
+                <label>Descripción:</label>
+                <textarea
+                    v-model="productoEditando.description"
+                    required
+                ></textarea>
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -63,6 +88,12 @@ export default {
             titulo: "Productos",
             productos: [],
             productoSeleccionado: null,
+            productoEditando: null,
+            // nuevoProducto: {
+            //     title: "",
+            //     price: "",
+            //     description: "",
+            // },
         };
     },
     mounted() {
@@ -83,6 +114,33 @@ export default {
         },
         cerrarModal() {
             this.productoSeleccionado = null;
+        },
+        editarProducto(producto) {
+            this.productoEditando = producto;
+        },
+        async guardarEdicion() {
+            try {
+                await axios.put(
+                    `/api/products/${this.productoEditando.id}`,
+                    this.productoEditando
+                );
+                // Actualizar la lista de productos con los nuevos
+                
+                const index = this.productos.findIndex(
+                    (p) => p.id === this.productoEditando.id
+                );
+                if (index !== -1) {
+                    this.productos[index] = {
+                        ...this.productoEditando,
+                    };
+                }
+                this.cerrarModalEdicion();
+            } catch (error) {
+                console.error("Error al actualizar el producto:", error);
+            }
+        },
+        cerrarModalEdicion() {
+            this.productoEditando = null;
         },
     },
 };
