@@ -1,110 +1,197 @@
-/* Estilos para la tabla */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-th {
-    background-color: #f4f4f4;
-}
-/* Estilos para los botones */
-button {
-    padding: 5px 10px;
-    cursor: pointer;
-    border: none;
-    color: white;
-    border-radius: 3px;
-}
-.ver {
-    background-color: #007bff;
-}
-.ver:hover {
-    background-color: #0056b3;
-}
-.editar {
-    background-color: #ffc107;
-}
-.editar:hover {
-    background-color: #d39e00;
-}
-.eliminar {
-    background-color: #dc3545;
-}
-.eliminar:hover {
-    background-color: #a71d2a;
-}
-/* Estilos del modal */
-.modal {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-.modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    text-align: center;
-}
-.close {
-    /* position: absolute; */
-    color: red;
-    cursor: pointer;
-    font-size: 40px;
-}
-/* Estilos del formulario */
-.form-container {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    margin: 20px auto; /* Centrado horizontal */
-    width: 50%; /* Ahora ocupa la mitad del ancho */
-    max-width: 600px; /* Máximo ancho para evitar que sea muy
-    grande en pantallas grandes */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-/* Centrar los elementos internos */
-.form-container h3 {
-    text-align: center;
-}
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra los elementos */
-}
-label {
-    font-weight: bold;
-    margin-top: 5px;
-    align-self: flex-start; /* Alinea las etiquetas a la izquierda
-    */
-    margin-left: 10px;
-}
-input,
-textarea {
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 90%; /* Hace que los inputs no ocupen todo el ancho */
-}
-/* Botón centrado */
-button[type="submit"] {
-    background-color: #28a745;
-    margin-top: 10px;
-    width: 95%;
-}
-button[type="submit"]:hover {
-    background-color: #218838;
-}
+h1 {
+    font-size: 3em;
+   }
+   
+   .main-content {
+       padding-left: 10%;
+       padding-right: 10%;
+   }
+   
+   /* Estilos para la tabla */
+   table {
+       width: 100%;
+       border-collapse: collapse;
+       margin-top: 20px;
+   }
+   
+   th,
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: left;
+   }
+   
+   th {
+       background-color: #f4f4f4;
+   }
+   
+   /* Estilos para los botones */
+   button {
+       padding: 5px 10px;
+       cursor: pointer;
+       border: none;
+       color: white;
+       border-radius: 3px;
+   }
+   
+   .ver {
+       background-color: #007bff;
+   }
+   
+   .ver:hover {
+       background-color: #0056b3;
+   }
+   
+   .editar {
+       background-color: #ffc107;
+   }
+   
+   .editar:hover {
+       background-color: #d39e00;
+   }
+   
+   .eliminar {
+       background-color: #dc3545;
+   }
+   
+   .eliminar:hover {
+       background-color: #a71d2a;
+   }
+   
+   /* Estilos del modal */
+   .modal {
+       display: flex;
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0, 0.5);
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .modal-content {
+       background-color: white;
+       padding: 40px;
+       border-radius: 5px;
+       width: 500px;
+       text-align: left;
+   }
+   
+   .close {
+       
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       color: red;
+       font-size: 50px;
+       cursor: pointer;
+   }
+   
+   /* Estilos del formulario */
+   .form-container {
+       background: #f9f9f9;
+       padding: 15px;
+       border-radius: 5px;
+       margin: 20px auto;
+       /* Centrado horizontal */
+       width: 50%;
+       /* Ahora ocupa la mitad del ancho */
+       max-width: 600px;
+       /* MÃ¡ximo ancho para evitar que sea muy
+       grande en pantallas grandes */
+       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   }
+   
+   /* Centrar los elementos internos */
+   .form-container h3 {
+       text-align: center;
+   }
+   
+   form {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       /* Centra los elementos */
+   }
+   
+   label {
+       font-weight: bold;
+       margin-top: 5px;
+       align-self: flex-start;
+       /* Alinea las etiquetas a la izquierda
+       */
+       margin-left: 10px;
+   }
+   
+   input,
+   textarea {
+       padding: 8px;
+       margin-top: 5px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       width: 90%;
+       /* Hace que los inputs no ocupen todo el ancho */
+   }
+   
+   /* BotÃ³n centrado */
+   button[type="submit"] {
+       background-color: #28a745;
+       margin-top: 10px;
+       width: 95%;
+   }
+   
+   button[type="submit"]:hover {
+       background-color: #218838;
+   }
+   
+   /* Estilos para el menÃº de navegaciÃ³n */
+   nav {
+       background-color: #343a40; /* Fondo oscuro */
+       padding: 10px 0;
+       display: flex;
+       justify-content: center;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+   }
+   
+   nav ul {
+       list-style: none;
+       display: flex;
+       padding: 0;
+       margin: 0;
+   }
+   
+   nav ul li {
+       margin: 0 15px;
+   }
+   
+   nav ul li a {
+       text-decoration: none;
+       color: white;
+       font-weight: bold;
+       padding: 8px 15px;
+       border-radius: 5px;
+       transition: background-color 0.3s ease;
+   }
+   
+   nav ul li a:hover,
+   nav ul li a.active {
+       background-color: #007bff; /* Azul Bootstrap */
+   }
+   
+   /* Responsive: convertir en menÃº vertical en pantallas pequeÃ±as */
+   @media (max-width: 768px) {
+       nav {
+           flex-direction: column;
+           align-items: center;
+       }
+   
+       nav ul {
+           flex-direction: column;
+       }
+   
+       nav ul li {
+           margin: 5px 0;
+       }
+   }
