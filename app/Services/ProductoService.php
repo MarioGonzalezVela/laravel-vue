@@ -2,62 +2,28 @@
 
 namespace App\Services;
 
+use App\Services\ApiService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Log;
 
-class ProductoService
+class ProductoService extends ApiService
 {
-    protected $baseUrl;
-    protected $apiKey;
+
 
     public function __construct()
     {
-        $this->baseUrl = env('API_BASE_URL');
-        $this->apiKey = env('API_KEY');
-    }
-
-    private function checkResponse($response)
-    {
-        if ($response->ok()) { // Código 200
-            $producto = $response->json();
-            // Manejar los datos del producto creado
-            return $producto;
-        } else {
-            // Manejar errores
-            abort($response->status(), $response->body());
-        }
+        parent::__construct();
     }
 
     public function getProductos()
     {
-        try {
-            $response = Http::withoutVerifying()
-                ->withHeaders([
-                    'Authorization' => 'Bearer ' . $this->apiKey,
-                ])
-                ->get($this->baseUrl . '/products');
-
-            return $this->checkResponse($response);
-        } catch (RequestException $e) {
-            Log::error('Error fetching API data', ['exception' => $e]);
-            abort(500, ['error' => 'API request failed']);
-        }
+        return parent::get('/products');
     }
 
     public function getProducto($id)
     {
-        try {
-            $response = Http::withoutVerifying()->withHeaders([
-
-                'Authorization' => 'Bearer ' . env('API_KEY'),
-            ])->get($this->baseUrl . '/products//' . $id);
-
-            return $this->checkResponse($response);
-        } catch (RequestException $e) {
-            Log::error('Error fetching API data', ['exception' => $e]);
-            abort(500, ['error' => 'API request failed']);
-        }
+        return parent::get('/products//' . $id);
     }
 
     public function postProducto($data)
